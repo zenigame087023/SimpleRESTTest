@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +30,6 @@ public class EmployeeController {
         Pageable pageable = PageRequest.of(page==null?0:page, 10, Sort.by("id"));
         return employeeService.getEmployeesByMultipleCondition(pageable, id,name,age,departmentName);
     }
-
 
     @PostMapping
     public ResponseEntity<Employee> createEmployees(
